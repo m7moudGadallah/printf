@@ -12,10 +12,11 @@ int (*print_with_format(const char *buffer, int *idx))()
 {
 	/* format dictionary maps formats with it's functions */
 	formater format_dic[] = {
-		{"c", printf_char}
+		{"c", printf_char},
+		{"s", printf_string}
 	};
 
-	int dic_len = 1;		/* lenght of format_dic */
+	int dic_len = 2;		/* lenght of format_dic */
 	int tmp_idx = *idx;
 	int j;
 
@@ -53,8 +54,7 @@ int (*print_with_format(const char *buffer, int *idx))()
 int _printf(const char *format, ...)
 {
 	int idx = 0,
-		written = 0,
-		tmp_idx = 0;
+		written = 0;
 
 	int (*formated_printf)();
 	va_list args;
@@ -69,7 +69,7 @@ int _printf(const char *format, ...)
 		if (format[idx] == '%')		/* case with formatting */
 		{
 			++idx;	/* move idx to the beginning of format flags */
-			formated_printf = print_with_format(foramat, &idx);
+			formated_printf = print_with_format(format, &idx);
 
 			if (!formated_printf)
 				return (written);
