@@ -106,7 +106,11 @@ int _printf(const char *format, ...)
 			formated_printf = print_with_format(format, &idx);
 
 			if (!formated_printf)
-				return (written);
+			{
+				_putchar('%');
+				written++;
+				continue;
+			}
 
 			written += formated_printf(args);
 		}
