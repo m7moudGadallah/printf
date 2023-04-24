@@ -41,7 +41,7 @@ int (*print_with_format(const char *buffer, int *idx))()
 	/* move idx to point on char after format */
 	*idx = tmp_idx;
 
-	return (format_dic[0].print_with_format);
+	return (format_dic[dic_len].print_with_format);
 }
 
 /**
