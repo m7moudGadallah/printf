@@ -45,6 +45,37 @@ int (*print_with_format(const char *buffer, int *idx))()
 }
 
 /**
+  * do_formated_print - take buffer and iterate over it tohandle mulitple %
+  *
+  * @buffer: buffer of string
+  * @idx: pointer to idx
+  * @written: pointer to writen
+  *
+  * Return: (1) use formated printf, (0) otherwise
+  */
+int do_formated_print(const char *buffer, int *idx, int *written)
+{
+	int flag = 1;
+
+	while (buffer[*idx + 1] && buffer[*idx + 1] == '%')
+	{
+		flag = !flag;
+
+		if (!flag)
+		{
+			_putchar(buffer[*idx]);
+			(*written)++;
+		}
+
+		(*idx)++;
+	}
+
+	(*idx)++;
+
+	return (flag);
+}
+
+/**
   * _printf - print buffer stream to output stream
   *
   * @format: buffer of chars
@@ -54,8 +85,7 @@ int (*print_with_format(const char *buffer, int *idx))()
 int _printf(const char *format, ...)
 {
 	int idx = 0,
-		written = 0,
-		do_formated_print = 0;
+		written = 0;
 
 	int (*formated_printf)();
 	va_list args;
@@ -69,26 +99,8 @@ int _printf(const char *format, ...)
 	{
 		if (format[idx] == '%')		/* case with formatting */
 		{
-			do_formated_print = 1;
-
-			/* handle cases of mulitple % */
-			while (format[idx + 1] && format[idx + 1] == '%')
-			{
-				do_formated_print = !do_formated_print;
-
-				if (!do_formated_print)
-				{
-					_putchar(format[idx]);
-					++written;
-				}
-
-				++idx;
-			}
-
-			++idx;      /* move idx to point the char after % */
-
 			/* case if i have even number of % so i still have % not printed */
-			if (!do_formated_print)
+			if (!do_formated_print(format, &idx, &written))
 				continue;
 
 			formated_printf = print_with_format(format, &idx);
