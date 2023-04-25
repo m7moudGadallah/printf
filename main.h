@@ -24,6 +24,7 @@ int _putchar(char c);
 int printf_char(va_list val);
 int printf_string(va_list val);
 int printf_dec(va_list val);
+int printf_int(va_list val);
 int _printf(const char *format, ...);
 
 #endif

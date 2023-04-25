@@ -14,10 +14,11 @@ int (*print_with_format(const char *buffer, int *idx))()
 	formater format_dic[] = {
 		{"c", printf_char},
 		{"s", printf_string},
-		{"d", printf_dec}
+		{"d", printf_dec},
+		{"i", printf_int}
 	};
 
-	int dic_len = 3;		/* lenght of format_dic */
+	int dic_len = 4;		/* lenght of format_dic */
 	int tmp_idx = *idx;
 	int j;
 
