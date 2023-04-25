@@ -23,6 +23,8 @@ typedef struct format
 int _putchar(char c);
 int printf_char(va_list val);
 int printf_string(va_list val);
+int print_octal(unsigned int arg, char *tmp);
+int print_hex(unsigned int arg, char *tmp, char to_upper_flag);
 int _printf(const char *format, ...);
 
 #endif
