@@ -13,7 +13,8 @@ int (*print_with_format(const char *buffer, int *idx))()
 	/* format dictionary maps formats with it's functions */
 	formater format_dic[] = {
 		{"c", printf_char},
-		{"s", printf_string}
+		{"s", printf_string},
+		{"o", printf_octal}
 	};
 
 	int dic_len = 2;		/* lenght of format_dic */
