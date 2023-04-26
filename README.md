@@ -10,7 +10,7 @@
 |✅|Enhance `printf` by adding formatting of `i`|[printf_int.c](./printf_int.c)|@[m7moudGadallah](https://github.com/m7moudGadallah)|
 |✅|Enhance `printf` by adding formatting of `d`|[printf_dec.c](./printf_dec.c)|@[m7moudGadallah](https://github.com/m7moudGadallah)|
 |✅|Enhance `printf` by adding formatting of `o`|[printf_ocal.c](./printf_octal.c)|@[MAHMOUD128](https://github.com/MAHMOUD128)|
-||Enhance `printf`by adding formatting of `x`|[printf_hex.c](./printf_hex.c)|@[MAHMOUD128](https://github.com/MAHMOUD128)|
+
 
 ## Contributors
 
